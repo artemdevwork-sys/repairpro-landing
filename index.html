@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RepairPro Toronto - Landing Page Demo</title>
+  <meta name="description" content="Responsive landing page demo for a local phone and laptop repair business.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Manrope, Arial, sans-serif;
+      color: #111827;
+      background: #f8fafc;
+    }
+
+    .rp-page {
+      overflow-x: hidden;
+      background: #f8fafc;
+    }
+
+    .rp-wrap {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .rp-section {
+      padding: 78px 0;
+    }
+
+    .rp-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .rp-header-inner {
+      width: min(1120px, calc(100% - 48px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      transition: min-height 180ms ease;
+    }
+
+    .rp-header.is-scrolled .rp-header-inner {
+      min-height: 62px;
+    }
+
+    .rp-logo {
+      color: #0f172a;
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .rp-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .rp-nav a,
+    .rp-mobile-nav a {
+      color: #334155;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .rp-nav a:hover,
+    .rp-mobile-nav a:hover {
+      color: #0f766e;
+    }
+
+    .rp-header-call {
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 8px;
+      background: #0f766e;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .rp-mobile-menu {
+      display: none;
+    }
+
+    .rp-hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5, 28, 44, 0.94), rgba(8, 89, 84, 0.78)),
+        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+    }
+
+    .rp-kicker {
+      margin: 0 0 16px;
+      color: #67e8f9;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .rp-title {
+      max-width: 820px;
+      margin: 0;
+      font-size: 62px;
+      line-height: 1.04;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.24);
+    }
+
+    .rp-subtitle {
+      max-width: 760px;
+      margin: 24px 0 0;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #e6f4f5;
+    }
+
+    .rp-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .rp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 26px;
+      border: 0;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .rp-btn-primary {
+      background: #0f766e;
+      color: #ffffff;
+    }
+
+    .rp-btn-primary:hover {
+      background: #115e59;
+      color: #ffffff;
+    }
+
+    .rp-btn-secondary {
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    .rp-btn-secondary:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .rp-trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 48px;
+      max-width: 820px;
+    }
+
+    .rp-trust-item {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .rp-trust-number {
+      font-size: 30px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .rp-trust-text {
+      margin-top: 6px;
+      color: #e6f4f5;
+      font-size: 15px;
+    }
+
+    .rp-heading {
+      margin: 0 0 14px;
+      font-size: 38px;
+      line-height: 1.15;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .rp-text {
+      max-width: 740px;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    #services {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef6f8 100%);
+    }
+
+    .rp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .rp-card {
+      background: #ffffff;
+      border: 1px solid #dbe5ee;
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .rp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(15, 23, 42, 0.12);
+      border-color: rgba(15, 118, 110, 0.28);
+    }
+
+    .rp-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #ccfbf1;
+      color: #0f766e;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .rp-card h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+      line-height: 1.25;
+      color: #111827;
+    }
+
+    .rp-card p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #334155;
+    }
+
+    .rp-band {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(20, 184, 166, 0.18), transparent 30%),
+        linear-gradient(135deg, #07111f 0%, #0f172a 62%, #083344 100%);
+      color: #ffffff;
+    }
+
+    .rp-band .rp-heading {
+      color: #ffffff;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.26);
+    }
+
+    .rp-band .rp-text {
+      color: #dbeafe;
+    }
+
+    .rp-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .rp-step {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-top: 4px solid #14b8a6;
+      background: rgba(255, 255, 255, 0.075);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .rp-step strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .rp-step span {
+      color: #dbeafe;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .rp-case {
+      background: #ffffff;
+    }
+
+    .rp-case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .rp-case-item {
+      border-left: 4px solid #14b8a6;
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 26px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.06);
+    }
+
+    .rp-case-item h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #111827;
+    }
+
+    .rp-case-item p {
+      margin: 0;
+      color: #334155;
+      line-height: 1.65;
+    }
+
+    #pricing {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef6f8 100%);
+    }
+
+    .rp-pricing-table {
+      margin-top: 36px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+    }
+
+    .rp-pricing-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1.7fr 160px;
+      gap: 24px;
+      align-items: center;
+      padding: 22px 28px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .rp-pricing-row:last-child {
+      border-bottom: 0;
+    }
+
+    .rp-pricing-head {
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .rp-pricing-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .rp-pricing-desc {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #334155;
+    }
+
+    .rp-pricing-cost {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f766e;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    #reviews {
+      background: linear-gradient(180deg, #f8fafc 0%, #eaf6fb 100%);
+    }
+
+    .rp-review {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .rp-stars {
+      color: #f59e0b;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .rp-name {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .rp-form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .rp-form label {
+      display: block;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .rp-form input,
+    .rp-form select,
+    .rp-form textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 16px;
+      color: #111827;
+      background: #ffffff;
+    }
+
+    .rp-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .rp-form-full {
+      grid-column: 1 / -1;
+    }
+
+    .rp-form-note {
+      margin-top: 14px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .rp-cta {
+      background: linear-gradient(135deg, #e0f2fe 0%, #ccfbf1 100%);
+    }
+
+    .rp-cta-box {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 28px;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 42px;
+      border: 1px solid #bae6fd;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+    }
+
+    .rp-phone {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0f766e;
+      text-align: right;
+    }
+
+    .rp-card,
+    .rp-step,
+    .rp-case-item,
+    .rp-pricing-table,
+    .rp-cta-box {
+      animation: rpFadeUp 500ms ease both;
+    }
+
+    @keyframes rpFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .rp-title {
+        font-size: 46px;
+      }
+
+      .rp-grid,
+      .rp-trust,
+      .rp-steps,
+      .rp-case-grid,
+      .rp-cta-box,
+      .rp-form {
+        grid-template-columns: 1fr;
+      }
+
+      .rp-phone {
+        text-align: left;
+      }
+
+      .rp-pricing-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 22px;
+      }
+
+      .rp-pricing-head {
+        display: none;
+      }
+
+      .rp-pricing-cost {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .rp-header-inner {
+        width: min(100% - 36px, 1120px);
+        min-height: 66px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+      }
+
+      .rp-header.is-scrolled .rp-header-inner {
+        min-height: 58px;
+      }
+
+      .rp-logo {
+        font-size: 20px;
+        line-height: 1.15;
+      }
+
+      .rp-nav,
+      .rp-header-call {
+        display: none;
+      }
+
+      .rp-mobile-menu {
+        display: block;
+        position: relative;
+      }
+
+      .rp-mobile-menu summary {
+        list-style: none;
+      }
+
+      .rp-mobile-menu summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .rp-menu-btn {
+        width: 42px;
+        height: 38px;
+        border: 1px solid #dbe5ee;
+        border-radius: 8px;
+        background: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .rp-menu-btn span {
+        width: 18px;
+        height: 2px;
+        border-radius: 8px;
+        background: #0f172a;
+        display: block;
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+
+      .rp-mobile-menu[open] .rp-menu-btn span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .rp-mobile-menu[open] .rp-menu-btn span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .rp-mobile-menu[open] .rp-menu-btn span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .rp-mobile-nav {
+        position: absolute;
+        right: 0;
+        top: 48px;
+        min-width: 220px;
+        padding: 10px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+        display: grid;
+        gap: 4px;
+      }
+
+      .rp-mobile-nav a {
+        padding: 12px 14px;
+        color: #0f172a;
+        font-size: 15px;
+        font-weight: 800;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .rp-mobile-nav a:hover {
+        background: #f1f5f9;
+        color: #0f766e;
+      }
+
+      .rp-section {
+        padding: 48px 0;
+      }
+
+      .rp-wrap {
+        width: min(100% - 36px, 1120px);
+      }
+
+      .rp-hero {
+        min-height: auto;
+        padding: 52px 0 46px;
+      }
+
+      .rp-title {
+        font-size: 34px;
+        line-height: 1.1;
+      }
+
+      .rp-subtitle {
+        font-size: 17px;
+        line-height: 1.5;
+      }
+
+      .rp-kicker {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+
+      .rp-actions {
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .rp-actions .rp-btn {
+        width: 100%;
+        min-height: 58px;
+      }
+
+      .rp-trust {
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .rp-trust-item {
+        padding: 18px 20px;
+      }
+
+      .rp-trust-number {
+        font-size: 28px;
+      }
+
+      .rp-heading {
+        font-size: 30px;
+        line-height: 1.15;
+      }
+
+      .rp-text {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .rp-grid,
+      .rp-steps,
+      .rp-case-grid {
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .rp-card,
+      .rp-step,
+      .rp-case-item {
+        padding: 22px;
+      }
+
+      .rp-card h3 {
+        font-size: 22px;
+      }
+
+      .rp-card p,
+      .rp-step span,
+      .rp-case-item p {
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .rp-pricing-cost {
+        font-size: 21px;
+      }
+
+      .rp-cta-box {
+        padding: 26px;
+      }
+
+      .rp-phone {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .rp-title {
+        font-size: 31px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="rp-page">
+    <header class="rp-header">
+      <div class="rp-header-inner">
+        <a class="rp-logo" href="#top">RepairPro Toronto</a>
+
+        <nav class="rp-nav">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="rp-header-call" href="tel:+1555013459">Call now</a>
+
+        <details class="rp-mobile-menu">
+          <summary class="rp-menu-btn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </summary>
+
+          <nav class="rp-mobile-nav">
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+            <a href="tel:+1555013459">Call now</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main>
+      <section id="top" class="rp-hero rp-section">
+        <div class="rp-wrap">
+          <p class="rp-kicker">Local Repair Service</p>
+          <h1 class="rp-title">Fast Phone & Laptop Repair in Toronto</h1>
+          <p class="rp-subtitle">
+            Quick diagnostics, honest pricing, and same-day repair for phones, laptops, tablets, and business devices.
+          </p>
+
+          <div class="rp-actions">
+            <a class="rp-btn rp-btn-primary" href="tel:+1555013459">Get a free quote</a>
+            <a class="rp-btn rp-btn-secondary" href="#services">View services</a>
+          </div>
+
+          <div class="rp-trust">
+            <div class="rp-trust-item">
+              <div class="rp-trust-number">4.9/5</div>
+              <div class="rp-trust-text">Customer rating</div>
+            </div>
+
+            <div class="rp-trust-item">
+              <div class="rp-trust-number">30 min</div>
+              <div class="rp-trust-text">Average diagnostics</div>
+            </div>
+
+            <div class="rp-trust-item">
+              <div class="rp-trust-number">90 days</div>
+              <div class="rp-trust-text">Repair warranty</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="rp-section">
+        <div class="rp-wrap">
+          <h2 class="rp-heading">Repair Services</h2>
+          <p class="rp-text">
+            Clear, practical repair support for everyday devices. The page is designed to help visitors quickly understand the service and request help.
+          </p>
+
+          <div class="rp-grid">
+            <div class="rp-card">
+              <div class="rp-icon">01</div>
+              <h3>Phone Repair</h3>
+              <p>Screen replacement, battery issues, charging problems, camera faults, water damage checks, and software support.</p>
+            </div>
+
+            <div class="rp-card">
+              <div class="rp-icon">02</div>
+              <h3>Laptop Repair</h3>
+              <p>Slow laptops, broken keyboards, overheating, SSD upgrades, system cleanup, Windows setup, and hardware diagnostics.</p>
+            </div>
+
+            <div class="rp-card">
+              <div class="rp-icon">03</div>
+              <h3>Tablet Repair</h3>
+              <p>Display issues, charging ports, battery replacement, setup help, performance problems, and general maintenance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rp-section rp-band">
+        <div class="rp-wrap">
+          <h2 class="rp-heading">Simple Process</h2>
+          <p class="rp-text">
+            A clean service flow helps customers understand what happens next and reduces unnecessary messages before booking.
+          </p>
+
+          <div class="rp-steps">
+            <div class="rp-step">
+              <strong>1. Request</strong>
+              <span>Customer sends device details and the main problem.</span>
+            </div>
+
+            <div class="rp-step">
+              <strong>2. Diagnostics</strong>
+              <span>The repair team checks the issue and confirms the cause.</span>
+            </div>
+
+            <div class="rp-step">
+              <strong>3. Quote</strong>
+              <span>Customer receives clear pricing before the work starts.</span>
+            </div>
+
+            <div class="rp-step">
+              <strong>4. Repair</strong>
+              <span>The device is repaired, tested, and returned with warranty.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="rp-section">
+        <div class="rp-wrap">
+          <h2 class="rp-heading">Customer Reviews</h2>
+          <p class="rp-text">
+            Testimonials make the page more trustworthy and help visitors feel confident before contacting the repair service.
+          </p>
+
+          <div class="rp-grid">
+            <div class="rp-card rp-review">
+              <div class="rp-stars">★★★★★</div>
+              <p>My phone screen was replaced the same day. Clear price, fast service, and everything works perfectly.</p>
+              <div class="rp-name">Phone repair client</div>
+            </div>
+
+            <div class="rp-card rp-review">
+              <div class="rp-stars">★★★★★</div>
+              <p>The laptop diagnostics were quick and honest. I knew the price before the repair started.</p>
+              <div class="rp-name">Laptop repair client</div>
+            </div>
+
+            <div class="rp-card rp-review">
+              <div class="rp-stars">★★★★★</div>
+              <p>Professional service and good communication. I would use them again for device repairs.</p>
+              <div class="rp-name">Local customer</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="rp-section">
+        <div class="rp-wrap">
+          <h2 class="rp-heading">Common Repair Pricing</h2>
+          <p class="rp-text">
+            Clear pricing helps customers understand what to expect before they request a quote.
+          </p>
+
+          <div class="rp-pricing-table">
+            <div class="rp-pricing-row rp-pricing-head">
+              <div>Service</div>
+              <div>What's included</div>
+              <div>Price</div>
+            </div>
+
+            <div class="rp-pricing-row">
+              <div class="rp-pricing-name">Phone screen replacement</div>
+              <div class="rp-pricing-desc">Screen replacement for common iPhone and Android models.</div>
+              <div class="rp-pricing-cost">from $89</div>
+            </div>
+
+            <div class="rp-pricing-row">
+              <div class="rp-pricing-name">Battery replacement</div>
+              <div class="rp-pricing-desc">Phone and tablet battery service with basic health check.</div>
+              <div class="rp-pricing-cost">from $59</div>
+            </div>
+
+            <div class="rp-pricing-row">
+              <div class="rp-pricing-name">Charging port repair</div>
+              <div class="rp-pricing-desc">Charging issues, port cleaning, and connection diagnostics.</div>
+              <div class="rp-pricing-cost">from $49</div>
+            </div>
+
+            <div class="rp-pricing-row">
+              <div class="rp-pricing-name">Laptop diagnostics</div>
+              <div class="rp-pricing-desc">Hardware and software issue check before repair starts.</div>
+              <div class="rp-pricing-cost">free</div>
+            </div>
+
+            <div class="rp-pricing-row">
+              <div class="rp-pricing-name">SSD upgrade</div>
+              <div class="rp-pricing-desc">Speed up older laptops with storage upgrade and setup.</div>
+              <div class="rp-pricing-cost">from $99</div>
+            </div>
+
+            <div class="rp-pricing-row">
+              <div class="rp-pricing-name">System cleanup</div>
+              <div class="rp-pricing-desc">Performance, startup, and software optimization.</div>
+              <div class="rp-pricing-cost">from $39</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rp-section rp-case">
+        <div class="rp-wrap">
+          <h2 class="rp-heading">Built to Generate Repair Requests</h2>
+          <p class="rp-text">
+            This landing page is structured around one goal: helping visitors quickly trust the business and send a repair request.
+          </p>
+
+          <div class="rp-case-grid">
+            <div class="rp-case-item">
+              <h3>Project Goal</h3>
+              <p>Create a clear landing page for a local repair business that explains services, pricing, process, and contact options.</p>
+            </div>
+
+            <div class="rp-case-item">
+              <h3>What Was Built</h3>
+              <p>Hero section, service cards, repair process, testimonials, pricing examples, and a quote request form.</p>
+            </div>
+
+            <div class="rp-case-item">
+              <h3>Business Value</h3>
+              <p>The page helps turn visitors into leads by reducing confusion and making the next step easy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rp-section">
+        <div class="rp-wrap">
+          <h2 class="rp-heading">Request a Repair Quote</h2>
+          <p class="rp-text">
+            Visitors can describe their device issue and request a quick estimate before visiting the repair shop.
+          </p>
+
+          <form class="rp-card rp-form">
+            <div>
+              <label for="rp-name">Name</label>
+              <input id="rp-name" type="text" placeholder="Your name">
+            </div>
+
+            <div>
+              <label for="rp-phone-field">Phone</label>
+              <input id="rp-phone-field" type="tel" placeholder="+1 555 013 459">
+            </div>
+
+            <div>
+              <label for="rp-device">Device type</label>
+              <select id="rp-device">
+                <option>Phone</option>
+                <option>Laptop</option>
+                <option>Tablet</option>
+                <option>Business device</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="rp-service">Service needed</label>
+              <select id="rp-service">
+                <option>Screen repair</option>
+                <option>Battery replacement</option>
+                <option>Charging issue</option>
+                <option>Diagnostics</option>
+                <option>Other issue</option>
+              </select>
+            </div>
+
+            <div class="rp-form-full">
+              <label for="rp-message">Problem description</label>
+              <textarea id="rp-message" placeholder="Tell us what happened and what device you have"></textarea>
+            </div>
+
+            <div class="rp-form-full">
+              <button class="rp-btn rp-btn-primary" type="button">Request a quote</button>
+              <p class="rp-form-note">
+                Demo form for portfolio presentation. For a real client project, this can be connected to WordPress forms, email notifications, or CRM lead tracking.
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="contact" class="rp-section rp-cta">
+        <div class="rp-wrap">
+          <div class="rp-cta-box">
+            <div>
+              <h2 class="rp-heading">Need a quick repair quote?</h2>
+              <p class="rp-text">
+                Call now or send a request. We will check the issue, explain the repair options, and confirm the price before starting.
+              </p>
+
+              <div class="rp-actions">
+                <a class="rp-btn rp-btn-primary" href="tel:+1555013459">Call now</a>
+              </div>
+            </div>
+
+            <div class="rp-phone">
+              +1 555 013 459
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const header = document.querySelector('.rp-header');
+
+    function updateHeader() {
+      if (window.scrollY > 24) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader);
+  </script>
+</body>
+</html>
