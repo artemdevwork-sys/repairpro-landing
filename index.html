@@ -22,11 +22,12 @@
       font-family: Manrope, Arial, sans-serif;
       color: #111827;
       background: #f8fafc;
+      overflow-x: hidden;
     }
 
     .rp-page {
-      overflow-x: hidden;
       background: #f8fafc;
+      padding-top: 76px;
     }
 
     .rp-wrap {
@@ -36,11 +37,14 @@
 
     .rp-section {
       padding: 78px 0;
+      scroll-margin-top: 90px;
     }
 
     .rp-header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 50;
       width: 100%;
       background: rgba(255, 255, 255, 0.96);
@@ -555,6 +559,10 @@
     }
 
     @media (max-width: 760px) {
+      .rp-page {
+        padding-top: 66px;
+      }
+
       .rp-header-inner {
         width: min(100% - 36px, 1120px);
         min-height: 66px;
